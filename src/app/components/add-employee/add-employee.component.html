@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4"> Add New Employee</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="mx-auto" style="max-width: 500px;">
+    
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <div *ngIf="addForm.get('name')?.invalid && addForm.get('name')?.touched" class="text-danger">
+        Name is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" type="email" class="form-control" formControlName="email">
+      <div *ngIf="addForm.get('email')?.invalid && addForm.get('email')?.touched" class="text-danger">
+        Valid email is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL</label>
+      <input id="image" type="text" class="form-control" formControlName="image">
+      <div *ngIf="addForm.get('image')?.invalid && addForm.get('image')?.touched" class="text-danger">
+        Image URL is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="salary" class="form-label">Salary (EGP)</label>
+      <input id="salary" type="text" class="form-control" formControlName="salary">
+      <div *ngIf="addForm.get('salary')?.invalid && addForm.get('salary')?.touched" class="text-danger">
+        Enter a valid number
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100" [disabled]="addForm.invalid">Add Employee</button>
+  </form>
+</div>
+

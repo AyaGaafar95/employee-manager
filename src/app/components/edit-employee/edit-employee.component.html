@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Edit Employee</h2>
+
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="mx-auto" style="max-width: 500px;">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <div *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched" class="text-danger">
+        Name is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" type="email" class="form-control" formControlName="email">
+      <div *ngIf="editForm.get('email')?.invalid && editForm.get('email')?.touched" class="text-danger">
+        Valid email is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL</label>
+      <input id="image" type="text" class="form-control" formControlName="image">
+      <div *ngIf="editForm.get('image')?.invalid && editForm.get('image')?.touched" class="text-danger">
+        Image URL is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="salary" class="form-label">Salary (EGP)</label>
+      <input id="salary" type="text" class="form-control" formControlName="salary">
+      <div *ngIf="editForm.get('salary')?.invalid && editForm.get('salary')?.touched" class="text-danger">
+        Enter a valid number
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" [disabled]="editForm.invalid">Update Employee</button>
+  </form>
+</div>
